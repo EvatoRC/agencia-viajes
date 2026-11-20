@@ -1,0 +1,727 @@
+/* ===== Variables ===== */
+:root {
+  --fondo: #f5f7fa;
+  --papel: #ffffff;
+  --tinta: #1d2733;
+  --tenue: #5f6b7a;
+  --primario: #0b6e8a;
+  --primario-oscuro: #08566c;
+  --acento: #f2994a;
+  --borde: #dde3ea;
+  --exito: #2e7d4f;
+  --aviso: #fff6e0;
+  --error: #fdecea;
+  --radio: 12px;
+  --sombra: 0 6px 18px rgba(29, 39, 51, 0.08);
+
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  color: var(--tinta);
+  background: var(--fondo);
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%; /* Safari iOS: evita que agrande el texto al girar */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+}
+a {
+  color: var(--primario);
+}
+button,
+input,
+select {
+  font: inherit;
+}
+
+/* ===== Header y navegación ===== */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--papel);
+  border-bottom: 1px solid var(--borde);
+}
+.logo {
+  font-size: 1.3rem;
+  font-weight: 800;
+  text-decoration: none;
+  color: var(--tinta);
+}
+.nav {
+  display: flex;
+  gap: 0.25rem;
+}
+.nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--tenue);
+  font-weight: 500;
+}
+.nav a:hover {
+  background: var(--fondo);
+}
+.nav a.active {
+  background: var(--primario);
+  color: #fff;
+}
+.contador-nav {
+  min-width: 1.3rem;
+  padding: 0 0.35rem;
+  border-radius: 99px;
+  background: var(--acento);
+  color: #fff;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.contenido {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 6rem;
+  min-height: 75vh;
+}
+.footer {
+  padding: 1.5rem 1rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--tenue);
+  border-top: 1px solid var(--borde);
+}
+
+/* ===== Textos ===== */
+.subtitulo {
+  margin-top: -0.4rem;
+  color: var(--tenue);
+}
+.texto-tenue {
+  color: var(--tenue);
+  margin: 0.15rem 0;
+}
+.texto-chico {
+  font-size: 0.8rem;
+}
+.migas {
+  font-size: 0.9rem;
+  color: var(--tenue);
+}
+.pais {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+/* ===== Botones ===== */
+.btn {
+  display: inline-block;
+  padding: 0.65rem 1.2rem;
+  border: 1px solid var(--primario);
+  border-radius: 8px;
+  background: var(--primario);
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.btn:hover {
+  background: var(--primario-oscuro);
+}
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.btn-secundario {
+  background: transparent;
+  color: var(--primario);
+}
+.btn-secundario:hover {
+  background: var(--primario);
+  color: #fff;
+}
+.btn-claro {
+  background: #fff;
+  color: var(--primario);
+  border-color: #fff;
+}
+.btn-claro:hover {
+  background: #e8f4f7;
+}
+.btn-chico {
+  padding: 0.4rem 0.9rem;
+  font-size: 0.9rem;
+}
+.btn-texto {
+  padding: 0;
+  border: none;
+  background: none;
+  color: #b3261e;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.btn:focus-visible,
+.chip:focus-visible,
+.btn-texto:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--acento);
+  outline-offset: 2px;
+}
+
+/* ===== Inicio ===== */
+.hero {
+  padding: 2.5rem 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: var(--radio);
+  color: #fff;
+  background: linear-gradient(135deg, #0b6e8a 0%, #0f9bb5 55%, #f2994a 130%);
+}
+.hero h1 {
+  margin-top: 0;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+}
+.hero p {
+  max-width: 560px;
+}
+.pasos {
+  display: grid;
+  gap: 1rem;
+  margin: 0 0 2rem;
+  padding: 0;
+  list-style: none;
+}
+.pasos li {
+  padding: 1rem;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  background: var(--papel);
+}
+.pasos span {
+  display: inline-grid;
+  place-items: center;
+  width: 1.8rem;
+  height: 1.8rem;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+  background: var(--acento);
+  color: #fff;
+  font-weight: 700;
+}
+.pasos p {
+  margin: 0.4rem 0 0;
+  color: var(--tenue);
+}
+
+/* ===== Grilla y tarjetas de destino ===== */
+.grilla {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+.tarjeta {
+  overflow: hidden;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  background: var(--papel);
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+a.tarjeta:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sombra);
+}
+.tarjeta-destino {
+  display: flex;
+  flex-direction: column;
+}
+.banda {
+  display: grid;
+  place-items: center;
+  height: 110px;
+}
+.banda-icono {
+  font-size: 3rem;
+}
+.tarjeta-cuerpo {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1rem;
+}
+.tarjeta-cuerpo .pais {
+  color: var(--primario);
+}
+.tarjeta-cuerpo h3 {
+  margin: 0.2rem 0;
+  font-size: 1.3rem;
+}
+.ver-mas {
+  margin-top: auto;
+  padding-top: 0.6rem;
+  font-weight: 600;
+  color: var(--primario);
+}
+.actividades {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.6rem 0;
+  padding: 0;
+  list-style: none;
+}
+.actividades li {
+  padding: 0.2rem 0.65rem;
+  border-radius: 99px;
+  background: #e8f4f7;
+  color: var(--primario-oscuro);
+  font-size: 0.85rem;
+}
+
+/* ===== Filtros ===== */
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+  margin-bottom: 1.25rem;
+}
+.buscador {
+  flex: 1 1 260px;
+  max-width: 420px;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  background: var(--papel);
+}
+.filtros select {
+  margin-left: 0.3rem;
+  padding: 0.4rem;
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+  background: var(--papel);
+}
+.check {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+}
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.chip {
+  padding: 0.35rem 0.85rem;
+  border: 1px solid var(--borde);
+  border-radius: 99px;
+  background: var(--papel);
+  color: var(--tinta);
+  cursor: pointer;
+}
+.chip-activo {
+  border-color: var(--primario);
+  background: var(--primario);
+  color: #fff;
+}
+
+/* ===== Detalle de destino ===== */
+.cabecera-destino {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  border-radius: var(--radio);
+  color: #fff;
+}
+.cabecera-destino h1 {
+  margin: 0.1rem 0 0.3rem;
+  font-size: clamp(1.7rem, 5vw, 2.6rem);
+}
+.cabecera-destino p {
+  margin: 0;
+}
+.cabecera-icono {
+  font-size: 3.5rem;
+}
+.actividades-destino h2 {
+  margin-bottom: 0;
+  font-size: 1.15rem;
+}
+.columnas {
+  display: grid;
+  gap: 1.5rem;
+}
+.columnas h2 {
+  font-size: 1.25rem;
+}
+
+/* ===== Tarjetas de vuelo y hotel ===== */
+.opcion {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+  padding: 1rem;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  background: var(--papel);
+}
+.opcion-elegida {
+  border: 2px solid var(--exito);
+  background: #f2faf5;
+}
+.opcion-agotada {
+  opacity: 0.65;
+}
+.opcion-titulo {
+  margin: 0 0 0.2rem;
+  font-weight: 700;
+}
+.opcion-lateral {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.3rem;
+  text-align: right;
+  white-space: nowrap;
+}
+.opcion-lateral .texto-chico {
+  margin-top: -0.4rem;
+}
+.horario {
+  margin: 0.15rem 0;
+}
+.precio {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+.precio-grande {
+  font-size: 1.8rem;
+  color: var(--primario);
+}
+.enlace-detalle {
+  font-size: 0.85rem;
+}
+.estrellas {
+  color: #e0a100;
+  letter-spacing: 1px;
+}
+.estrellas-vacias {
+  color: #d6dbe1;
+}
+.etiqueta {
+  display: inline-block;
+  margin-top: 0.4rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 99px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+.etiqueta-ok {
+  background: #e3f4ea;
+  color: var(--exito);
+}
+.etiqueta-pocos {
+  background: #fff1dc;
+  color: #a35a00;
+}
+.etiqueta-agotado {
+  background: #eceff2;
+  color: #6b7480;
+}
+
+/* Barra fija con el resumen del plan */
+.barra-plan {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 15;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--tinta);
+  color: #fff;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.12);
+}
+.barra-plan .btn {
+  background: var(--acento);
+  border-color: var(--acento);
+}
+
+/* ===== Detalle de vuelo / hotel y Mi viaje ===== */
+.detalle-grilla {
+  display: grid;
+  gap: 1.5rem;
+  align-items: start;
+}
+.ficha {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.5rem 1rem;
+  margin: 1rem 0;
+}
+.ficha dt {
+  font-weight: 600;
+  color: var(--tenue);
+}
+.ficha dd {
+  margin: 0;
+}
+.caja-precio {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1.25rem;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  background: var(--papel);
+  box-shadow: var(--sombra);
+}
+.caja-precio p {
+  margin: 0;
+}
+.resumen-item {
+  margin-bottom: 1rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  background: var(--papel);
+}
+.resumen-item h2 {
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+.campo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+}
+.campo input {
+  width: 5rem;
+  padding: 0.4rem;
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+  text-align: center;
+}
+.total {
+  display: flex;
+  flex-direction: column;
+  padding-top: 0.6rem;
+  border-top: 1px dashed var(--borde);
+  font-weight: 600;
+}
+.confirmacion {
+  max-width: 520px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: var(--radio);
+  background: var(--papel);
+  box-shadow: var(--sombra);
+  text-align: center;
+}
+.codigo-reserva {
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  border: 2px dashed var(--primario);
+  border-radius: 8px;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+/* ===== Carga ===== */
+.cargando-texto {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+  color: var(--tenue);
+}
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 3px solid var(--borde);
+  border-top-color: var(--primario);
+  border-radius: 50%;
+  animation: girar 0.8s linear infinite;
+}
+@keyframes girar {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.esqueleto {
+  height: 180px;
+  background: linear-gradient(90deg, #e9edf1 25%, #f4f6f8 50%, #e9edf1 75%);
+  background-size: 200% 100%;
+  animation: brillo 1.2s infinite;
+}
+@keyframes brillo {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+/* ===== Vigencia de los datos ===== */
+.estado-datos {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 1.6rem;
+  margin: 0 0 0.8rem;
+  font-size: 0.85rem;
+  color: var(--tenue);
+}
+.aviso-datos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+.spinner-chico {
+  width: 13px;
+  height: 13px;
+  border-width: 2px;
+}
+.btn-texto-neutro {
+  color: var(--primario);
+  font-size: inherit;
+}
+
+/* ===== Errores y avisos ===== */
+.error {
+  padding: 1.25rem 1.5rem;
+  border: 1px solid #f3c1bc;
+  border-radius: var(--radio);
+  background: var(--error);
+}
+.error h2 {
+  margin-top: 0;
+  font-size: 1.25rem;
+}
+.error-compacto {
+  padding: 0.8rem 1rem;
+}
+.error-detalle {
+  font-weight: 600;
+}
+.codigo {
+  margin-left: 0.5rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  background: #fff;
+  font-size: 0.75rem;
+  font-weight: normal;
+}
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.aviso {
+  padding: 0.8rem 1rem;
+  border: 1px solid #f0d9a0;
+  border-radius: var(--radio);
+  background: var(--aviso);
+}
+.vacio {
+  padding: 1.5rem;
+  color: var(--tenue);
+  text-align: center;
+}
+
+/* ===== Responsivo (tablet y escritorio) ===== */
+@media (min-width: 700px) {
+  .header {
+    padding: 0.9rem 2rem;
+  }
+  .contenido {
+    padding: 2rem 2rem 6rem;
+  }
+  .hero {
+    padding: 3.5rem 2.5rem;
+  }
+  .pasos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .columnas {
+    grid-template-columns: 1fr 1fr;
+  }
+  .detalle-grilla {
+    grid-template-columns: 1fr 320px;
+  }
+  .caja-precio {
+    position: sticky;
+    top: 5rem;
+  }
+}
+
+/* Celulares chicos: la tarjeta de vuelo/hotel pasa a una columna */
+@media (max-width: 420px) {
+  .opcion {
+    flex-direction: column;
+  }
+  .opcion-lateral {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: left;
+  }
+  .cabecera-destino {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .ficha {
+    grid-template-columns: 1fr;
+    gap: 0.1rem;
+  }
+  .ficha dd {
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Respeta a quienes prefieren menos animaciones */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
