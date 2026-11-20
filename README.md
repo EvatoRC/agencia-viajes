@@ -212,11 +212,3 @@ worker.resetHandlers()
 | Tablet | 768 px | ✅ |
 | Escritorio | 1280 px | ✅ Vuelos y hoteles en dos columnas; resumen del plan fijo al costado |
 
-
-## Publicar en GitHub Pages
-
-```bash
-npm run deploy
-```
-
-Después, en GitHub ir a **Settings → Pages** y elegir la rama `gh-pages`, carpeta `/ (root)`. El mock también funciona en el sitio publicado, porque no hay backend real. `vite.config.js` usa `base: './'`, así que no hay que cambiar nada si el repositorio tiene otro nombre.
